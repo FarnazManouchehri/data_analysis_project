@@ -1,0 +1,20 @@
+column,dtype,missing_pct,n_unique,min,max
+vendor,int8,0.0,3,1,6
+pickup,datetime64[s],0.0,9955675,2002-12-31 16:46:07,2026-06-26 23:53:12
+dropoff,datetime64[s],0.0,9948395,2002-12-31 17:24:07,2026-06-27 20:59:10
+passengers,Float32,9.718551848056174,10,0.0,9.0
+ratecode,Float32,9.718551848056174,7,1.0,99.0
+store_fwd,category,9.718551848056174,2,,
+pu,int16,0.0,262,1,265
+do,int16,0.0,261,1,265
+payment,int8,0.0,6,0,5
+trip_distance,float32,0.0,7056,0.0,312722.3
+fare_amount,float32,0.0,14681,-1285.4,334076.3
+extra,float32,0.0,116,-7.5,65.99
+mta_tax,float32,0.0,20,-0.5,35.84
+tip_amount,float32,0.0,6638,-300.0,999.99
+tolls_amount,float32,0.0,2831,-117.26,1702.88
+improvement_surcharge,float32,0.0,5,-1.0,1.0
+total_amount,float32,0.0,33401,-1315.97,334145.3
+congestion_surcharge,float32,9.718551848056174,8,-2.5,2.52
+airport_fee,float32,9.718551848056174,4,-1.75,1.75

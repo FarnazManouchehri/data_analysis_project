@@ -1,0 +1,44 @@
+# Phase 1 parameters. Fixed before any modelling; change only with a written reason.
+
+seed = 7
+
+[data]
+service = "yellow"
+months = ["2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06"]
+base_url = "https://d37ci6vzurychx.cloudfront.net/trip-data"
+zone_lookup_url = "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv"
+
+[data.sha256]
+"yellow_tripdata_2024-01.parquet" = "c4d59da7bbc8abaeeeb1727947ee93d9891a71acb42854bd80db1571b2030510"
+"yellow_tripdata_2024-02.parquet" = "c76c43c18c6c6664080dd920baab4928988d5786a6b65980792ca7cd796f9f20"
+"yellow_tripdata_2024-03.parquet" = "2d4cdc8fb96726cdd3803b13b02d2e61e71d45720aff0ebc693a8bdd1f249823"
+"yellow_tripdata_2024-04.parquet" = "ce37f736c7cf9e92164c850ef2b502a8f7bb590fc1804b6edbcb80293da01b89"
+"yellow_tripdata_2024-05.parquet" = "1974230be2b5a3ea92e47b5eb77f32dbf1de896d81ad8df4ab6faba52749ad23"
+"yellow_tripdata_2024-06.parquet" = "677cf14c8347f745b583f012fbdba072334c6c4efa17bfd6a64369f2ba30329c"
+"taxi_zone_lookup.csv" = "1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed"
+
+[window]
+# Pickups outside [start, end) are treated as clock / file errors.
+start = "2024-01-01"
+end = "2024-07-01"
+
+[split]
+# Temporal split on the pickup hour. The test month is never scored in Phase 1.
+train_end = "2024-05-01"
+valid_end = "2024-06-01"
+test_end = "2024-07-01"
+
+[rules]
+# Plausibility limits used by the quality audit (taxidemand/checks.py).
+max_duration_min = 300
+min_duration_min = 1
+max_speed_mph = 80
+max_distance_mi = 200
+max_fare_usd = 1000
+max_passengers = 6
+
+[forecast]
+target = "pickups"          # trips starting in a zone during one clock hour
+horizon_hours = 24          # forecasts are issued a day ahead
+season_lag_hours = 168      # seasonal-naive baseline: same hour one week earlier
+active_zone_min_daily = 10  # zones with fewer mean daily pickups in train are pooled

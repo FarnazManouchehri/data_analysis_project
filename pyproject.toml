@@ -1,0 +1,22 @@
+[project]
+name = "taxidemand"
+version = "0.1.0"
+description = "Day-ahead hourly pickup demand by NYC taxi zone (Data Analysis course, Track A)"
+requires-python = ">=3.11"
+# Pinned to the versions the Phase 1 outputs were produced with (Python 3.13.1, macOS arm64).
+dependencies = [
+    "numpy==2.5.4",
+    "pandas==3.1.0",
+    "pyarrow==26.0.0",
+    "scipy==1.18.1",
+    "scikit-learn==1.9.1",
+    "matplotlib==3.11.2",
+    "markdown==3.11.2",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["taxidemand"]

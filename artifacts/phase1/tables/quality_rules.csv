@@ -1,0 +1,19 @@
+rule,description,rows,pct,decision
+q_outside_window,Pickup outside 2024-01-01 .. 2024-06-30 (clock or file error),39,0.00019181497940226814,drop
+q_wrong_file,Pickup month differs from the monthly file it was published in,149,0.000732831587972768,keep if inside window
+q_exact_dup,Exact duplicate of another row on all raw columns,1,4.918332805186363e-06,drop the copy
+q_reversal,Negative fare/total: refund or void record,316694,1.5576064894056898,drop the negative row; keep its positive twin as a trip
+q_no_meta,"passenger_count, RatecodeID, store_and_fwd, congestion and airport fee all missing (payment_type 0)",1975985,9.718551848056174,keep for demand; exclude from fare models
+q_dur_nonpos,Dropoff at or before pickup,6177,0.030380541737636158,drop
+q_dur_short,Duration under 1 minute with distance > 0,73413,0.36106956622714637,flag; keep for demand
+q_dur_long,Duration over 5 hours (meter left running),11609,0.05709692553540848,drop
+q_dist_zero,trip_distance = 0,364322,1.7918568442511058,keep for demand; exclude from speed/fare analysis
+q_dist_huge,trip_distance > 200 miles,539,0.0026509813819954493,drop
+q_speed,Implied speed > 80 mph,6718,0.03304135978524198,drop
+q_fare_huge,"fare_amount > $1,000",15,7.377499207779543e-05,drop
+q_pass_zero,passenger_count = 0,221109,1.0874876482219513,keep; treat as unknown
+q_pass_many,passenger_count > 6,164,0.0008066065800505634,keep; treat as unknown
+q_ratecode_99,RatecodeID = 99 (not in data dictionary),214773,1.0563250915682907,treat as missing
+q_zone_unknown,Pickup zone 264/265 (unknown / outside NYC),76985,0.3786378510072721,exclude from zone panel
+q_total_mismatch,total_amount differs from its components by > $0.05 (after vendor conventions),37755,0.1856916550598111,flag only
+q_any_drop,Union of all 'drop' rules,341105,1.6776679115130941,removed from the clean frame

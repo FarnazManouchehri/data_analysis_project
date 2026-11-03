@@ -1,0 +1,426 @@
+{
+  "raw_rows": 20332093,
+  "raw_cols": 19,
+  "rows_by_file": {
+    "2024-01": 2964624,
+    "2024-02": 3007526,
+    "2024-03": 3582628,
+    "2024-04": 3514289,
+    "2024-05": 3723833,
+    "2024-06": 3539193
+  },
+  "zones_in_lookup": 265,
+  "pu_zones_seen": 262,
+  "pu_ids_not_in_lookup": 0,
+  "reversals": {
+    "negative_rows": 316694,
+    "with_positive_twin": 226068
+  },
+  "total_mismatch_naive_pct": 29.07590969606523,
+  "total_mismatch_vendor_aware_pct": 0.1856916550598111,
+  "missing_block": {
+    "no_meta_rows": 1975985,
+    "no_meta_pct": 9.718551848056174,
+    "no_meta_payment_type_0_only": true,
+    "rate_by_vendor": {
+      "1": 0.09503966927742408,
+      "2": 0.09779785205493961,
+      "6": 1.0
+    },
+    "rate_by_month": {
+      "2024-01": 0.04727817085741733,
+      "2024-02": 0.061715177192150625,
+      "2024-03": 0.11896015997195356,
+      "2024-04": 0.11626135471499356,
+      "2024-05": 0.10866921260969543,
+      "2024-06": 0.11606628968807296
+    },
+    "hour_rate_min_max": [
+      0.05157205673289913,
+      0.2619148108609118
+    ],
+    "chi2_vendor_p": 0.0,
+    "median_fare_missing_vs_rest": [
+      17.610000610351562,
+      12.800000190734863
+    ],
+    "mannwhitney_fare_p": 0.0
+  },
+  "outside_window_examples": [
+    "2002-12-31 16:46:07",
+    "2002-12-31 22:10:04",
+    "2002-12-31 22:17:10",
+    "2002-12-31 22:19:28",
+    "2002-12-31 22:59:39",
+    "2002-12-31 22:59:39",
+    "2002-12-31 23:08:30",
+    "2002-12-31 23:09:40",
+    "...",
+    "2024-07-01 00:05:23",
+    "2026-06-26 23:26:55",
+    "2026-06-26 23:53:12"
+  ],
+  "vendor6_rows": 1248,
+  "clean_rows": 19990988,
+  "dropped_pct": 1.6776679115130941,
+  "categorical_shares": {
+    "vendor": {
+      "2": 0.7542368591287234,
+      "1": 0.2457252237858379,
+      "6": 3.791708543869868e-05
+    },
+    "payment": {
+      "1": 0.7553082919163375,
+      "2": 0.13522248125005126,
+      "0": 0.0957849607032929,
+      "4": 0.009096849040177504,
+      "3": 0.0045874170901408174
+    },
+    "ratecode": {
+      "1.0": 0.8497058274458471,
+      "<NA>": 0.0957849607032929,
+      "2.0": 0.032633104476877284,
+      "99.0": 0.01068141304471795,
+      "5.0": 0.006313694950944896,
+      "3.0": 0.002806764728186521,
+      "4.0": 0.0020729840866294353,
+      "6.0": 1.250563503914864e-06
+    }
+  },
+  "hours_in_window": 4368,
+  "hours_with_zero_trips": [
+    "2024-03-10 02:00:00"
+  ],
+  "dst_gap_hour_trips": 0,
+  "lowest_hours": {
+    "2024-03-10 02:00:00": 0,
+    "2024-04-23 03:00:00": 136,
+    "2024-02-20 03:00:00": 137,
+    "2024-04-30 03:00:00": 141,
+    "2024-02-06 03:00:00": 148
+  },
+  "peak_hour": 18,
+  "trough_hour": 4,
+  "peak_trough_ratio": 12.240803704146662,
+  "mean_daily_by_dow": {
+    "Mon": 91960.69230769231,
+    "Tue": 107735.15384615384,
+    "Wed": 115811.65384615384,
+    "Thu": 123526.53846153847,
+    "Fri": 114909.42307692308,
+    "Sat": 117318.57692307692,
+    "Sun": 97622.11538461539
+  },
+  "daily_mean": 109840.59340659341,
+  "daily_min": "2024-01-07 00:00:00",
+  "daily_max": "2024-05-16 00:00:00",
+  "anomaly_days": [
+    {
+      "pickup": "2024-01-02",
+      "trips": "74316",
+      "expected": "92734.0",
+      "pct_dev": "-19.9",
+      "robust_z": "-14.7",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-01-06",
+      "trips": "95668",
+      "expected": "107214.0",
+      "pct_dev": "-10.8",
+      "robust_z": "-4.6",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-01-07",
+      "trips": "66451",
+      "expected": "91338.0",
+      "pct_dev": "-27.2",
+      "robust_z": "-10.1",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-02-13",
+      "trips": "68047",
+      "expected": "100381.0",
+      "pct_dev": "-32.2",
+      "robust_z": "-6.8",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-02-14",
+      "trips": "120031",
+      "expected": "102966.5",
+      "pct_dev": "16.6",
+      "robust_z": "6.7",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-03-06",
+      "trips": "130887",
+      "expected": "117500.0",
+      "pct_dev": "11.4",
+      "robust_z": "4.3",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-03-30",
+      "trips": "110344",
+      "expected": "128854.5",
+      "pct_dev": "-14.4",
+      "robust_z": "-8.8",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-04-02",
+      "trips": "129206",
+      "expected": "110172.5",
+      "pct_dev": "17.3",
+      "robust_z": "18.0",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-04-03",
+      "trips": "137142",
+      "expected": "118519.5",
+      "pct_dev": "15.7",
+      "robust_z": "9.6",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-04-27",
+      "trips": "115893",
+      "expected": "129672.5",
+      "pct_dev": "-10.6",
+      "robust_z": "-6.7",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-05-25",
+      "trips": "88175",
+      "expected": "129030.5",
+      "pct_dev": "-31.7",
+      "robust_z": "-17.1",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-05-26",
+      "trips": "83848",
+      "expected": "107650.0",
+      "pct_dev": "-22.1",
+      "robust_z": "-4.1",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-05-27",
+      "trips": "71149",
+      "expected": "104357.0",
+      "pct_dev": "-31.8",
+      "robust_z": "-6.9",
+      "holiday": "Memorial Day"
+    },
+    {
+      "pickup": "2024-05-28",
+      "trips": "103021",
+      "expected": "119738.5",
+      "pct_dev": "-14.0",
+      "robust_z": "-5.1",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-06-06",
+      "trips": "139617",
+      "expected": "123790.5",
+      "pct_dev": "12.8",
+      "robust_z": "4.9",
+      "holiday": ""
+    },
+    {
+      "pickup": "2024-06-30",
+      "trips": "89585",
+      "expected": "102773.0",
+      "pct_dev": "-12.8",
+      "robust_z": "-4.9",
+      "holiday": ""
+    }
+  ],
+  "monthly_trips": {
+    "2024-01": 2923273,
+    "2024-02": 2963282,
+    "2024-03": 3519700,
+    "2024-04": 3452323,
+    "2024-05": 3659391,
+    "2024-06": 3473019
+  },
+  "spearman": {
+    "distance_fare": 0.9228719010329498,
+    "distance_duration": 0.8299128931322468,
+    "duration_fare": 0.9661130196696165
+  },
+  "fare_per_mile_median": 7.450980186462402,
+  "fare_below_meter_floor_pct": 0.0087,
+  "median_speed_by_hour_min_max": [
+    8.113208770751953,
+    15,
+    16.11372947692871,
+    5
+  ],
+  "jfk_flat_fare_share": 3.608998198289105,
+  "zones_with_pickups": 260,
+  "top10_share": 37.67539443035697,
+  "top_zones": [
+    {
+      "zone": "Midtown Center",
+      "borough": "Manhattan",
+      "pickups": "940458"
+    },
+    {
+      "zone": "Upper East Side South",
+      "borough": "Manhattan",
+      "pickups": "934825"
+    },
+    {
+      "zone": "JFK Airport",
+      "borough": "Queens",
+      "pickups": "883794"
+    },
+    {
+      "zone": "Upper East Side North",
+      "borough": "Manhattan",
+      "pickups": "869706"
+    },
+    {
+      "zone": "Midtown East",
+      "borough": "Manhattan",
+      "pickups": "692122"
+    },
+    {
+      "zone": "Times Sq/Theatre District",
+      "borough": "Manhattan",
+      "pickups": "674004"
+    },
+    {
+      "zone": "Lincoln Square East",
+      "borough": "Manhattan",
+      "pickups": "655927"
+    },
+    {
+      "zone": "Penn Station/Madison Sq West",
+      "borough": "Manhattan",
+      "pickups": "647162"
+    },
+    {
+      "zone": "LaGuardia Airport",
+      "borough": "Queens",
+      "pickups": "630130"
+    },
+    {
+      "zone": "Upper West Side South",
+      "borough": "Manhattan",
+      "pickups": "575614"
+    }
+  ],
+  "gini_zones": 0.8547427837567683,
+  "borough_share_pickup": {
+    "Bronx": 0.29,
+    "Brooklyn": 1.25,
+    "EWR": 0.01,
+    "Manhattan": 89.51,
+    "Queens": 8.93,
+    "Staten Island": 0.0
+  },
+  "airport_share": 7.601232003656808,
+  "zones_lt1_per_day": 38,
+  "intra_manhattan_pct": 84.1539762369763,
+  "active_zones": 134,
+  "active_zone_pickup_share": 99.54999314646977,
+  "panel_rows": 1148784,
+  "active_zero_hours_pct": 27.551459734295552,
+  "active_hourly_mean_median_max": [
+    33.861576390027885,
+    2.0,
+    838
+  ],
+  "split": [
+    {
+      "split": "train",
+      "start": "2024-01-01",
+      "end": "2024-04-30 23:00:00",
+      "hours": "2904",
+      "pickups": "12753266",
+      "mean_hourly_per_active_zone": "32.77328748817894"
+    },
+    {
+      "split": "valid",
+      "start": "2024-05-01",
+      "end": "2024-05-31 23:00:00",
+      "hours": "744",
+      "pickups": "3626067",
+      "mean_hourly_per_active_zone": "36.37123856523832"
+    },
+    {
+      "split": "test",
+      "start": "2024-06-01",
+      "end": "2024-06-30 23:00:00",
+      "hours": "720",
+      "pickups": "3440254",
+      "mean_hourly_per_active_zone": "35.65769071310116"
+    }
+  ],
+  "baselines": [
+    {
+      "baseline": "Zone mean (train)",
+      "MAE": 22.336,
+      "RMSE": 49.715,
+      "WAPE_pct": 61.412,
+      "bias": -3.598
+    },
+    {
+      "baseline": "Same hour yesterday (lag 24)",
+      "MAE": 10.252,
+      "RMSE": 27.602,
+      "WAPE_pct": 28.186,
+      "bias": -0.047
+    },
+    {
+      "baseline": "Same hour last week (lag 168)",
+      "MAE": 8.082,
+      "RMSE": 20.373,
+      "WAPE_pct": 22.222,
+      "bias": 0.574
+    },
+    {
+      "baseline": "Zone x weekday x hour profile (train)",
+      "MAE": 7.268,
+      "RMSE": 18.519,
+      "WAPE_pct": 19.983,
+      "bias": -3.3
+    }
+  ],
+  "leakage": [
+    {
+      "design": "A. Random row split, neighbours t-1 and t+1",
+      "features": "zone_id, hour, dow, lag_1, lead_1",
+      "MAE": 4.967,
+      "RMSE": 11.278,
+      "WAPE_pct": 14.717,
+      "bias": -0.016
+    },
+    {
+      "design": "B. Random row split, day-ahead lags",
+      "features": "zone_id, hour, dow, lag_24, lag_168",
+      "MAE": 6.364,
+      "RMSE": 15.298,
+      "WAPE_pct": 18.856,
+      "bias": 0.017
+    },
+    {
+      "design": "C. Temporal split (train Jan-Apr, valid May), day-ahead lags",
+      "features": "zone_id, hour, dow, lag_24, lag_168",
+      "MAE": 6.855,
+      "RMSE": 16.831,
+      "WAPE_pct": 18.847,
+      "bias": 0.353
+    }
+  ]
+}

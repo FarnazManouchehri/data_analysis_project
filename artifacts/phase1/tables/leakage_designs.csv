@@ -1,0 +1,4 @@
+design,features,MAE,RMSE,WAPE_pct,bias
+"A. Random row split, neighbours t-1 and t+1","zone_id, hour, dow, lag_1, lead_1",4.967254233390126,11.2780952168323,14.716747694336059,-0.016128523311379372
+"B. Random row split, day-ahead lags","zone_id, hour, dow, lag_24, lag_168",6.3643251577701285,15.297605093996902,18.855923854675453,0.01684141937662558
+"C. Temporal split (train Jan-Apr, valid May), day-ahead lags","zone_id, hour, dow, lag_24, lag_168",6.855025967292111,16.831207967035848,18.84738116629269,0.3530369701602305

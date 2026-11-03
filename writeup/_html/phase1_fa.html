@@ -1,0 +1,820 @@
+<!doctype html><html lang='fa' dir='rtl'><head><meta charset='utf-8'><title>phase1_fa</title><base href='file:///Users/mohammadmahdi/Desktop/Projects/Khalooei/nyc-taxi-project/writeup/'><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Sans+Arabic:wght@500;700;800&family=JetBrains+Mono:wght@400&display=swap'><style>
+:root { --ink:#1e293b; --muted:#64748b; --teal:#0f766e; --teal-soft:#e6f4f1; --amber:#d97706;
+        --amber-soft:#fef6e7; --plum:#6d28d9; --line:#e2e8f0; }
+@page { size: A4; margin: 18mm 17mm 18mm 17mm; }
+@page :first { margin: 0; }
+html { direction: rtl; }
+body { font-family: "Noto Naskh Arabic", serif; font-size: 10.6pt; line-height: 1.85; color: var(--ink);
+       counter-reset: sec fig tab; margin: 0; }
+h1, h2, h3, .kpi b, th { font-family: "Noto Sans Arabic", sans-serif; }
+p, li { text-align: justify; }
+
+/* ---------- cover ---------- */
+.cover { height: 297mm; box-sizing: border-box; padding: 0; display: flex; flex-direction: column;
+         break-after: page; background: #0b3b37; color: white; position: relative; overflow: hidden; }
+.cover .band { padding: 36mm 20mm 14mm; background: linear-gradient(160deg, #0f766e 0%, #0b3b37 70%); }
+.cover .course { font-family: "Noto Sans Arabic"; font-size: 10pt; letter-spacing: .02em; opacity: .85; margin: 0; }
+.cover h1 { font-size: 25pt; line-height: 1.45; margin: 10mm 0 4mm; color: white; border: none; }
+.cover .en { direction: ltr; text-align: left; font-family: "Noto Sans Arabic"; font-size: 11pt; opacity: .8; margin: 0; }
+.cover .rule { width: 34mm; height: 2.2mm; background: var(--amber); margin: 9mm 0 0; border-radius: 2px; }
+.cover .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; padding: 10mm 20mm; }
+.kpi { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 4mm;
+       padding: 5mm 4mm; text-align: center; }
+.kpi b { display: block; font-size: 17pt; color: #fcd34d; direction: ltr; }
+.kpi span { font-size: 8.6pt; opacity: .9; line-height: 1.5; display: block; margin-top: 1.5mm; }
+.cover .who { margin-top: auto; padding: 0 20mm 22mm; font-size: 10pt; line-height: 2; }
+.cover .who p { margin: 0; text-align: right; }
+.cover .who b { color: #fcd34d; font-family: "Noto Sans Arabic"; }
+.cover code { background: rgba(255,255,255,.14); color: white; }
+
+/* ---------- headings ---------- */
+h2 { counter-increment: sec; font-size: 14.5pt; margin: 9mm 0 3mm; color: var(--teal);
+     display: flex; align-items: center; gap: 3mm; break-after: avoid; }
+h2::before { content: counter(sec, persian); display: inline-flex; align-items: center; justify-content: center;
+             width: 9mm; height: 9mm; border-radius: 50%; background: var(--teal); color: white; font-size: 11pt; flex: none; }
+h2::after { content: ""; flex: 1; height: 0; border-top: 1.5px dashed var(--amber); margin-right: 2mm; }
+h3 { font-size: 11.2pt; color: var(--plum); margin: 5mm 0 1.5mm; break-after: avoid; }
+.toc { columns: 2; column-gap: 10mm; font-size: 9.6pt; background: var(--teal-soft); border-radius: 3mm;
+       padding: 4mm 7mm; margin: 2mm 0 6mm; }
+.toc ol { margin: 0; padding-right: 5mm; list-style: persian; }
+.toc li { text-align: right; }
+
+/* ---------- tables ---------- */
+table { counter-increment: tab; border-collapse: separate; border-spacing: 0; width: 100%; margin: 3mm 0 2mm;
+        font-size: 8.9pt; line-height: 1.55; break-inside: avoid; border: 1px solid var(--line); border-radius: 2.5mm;
+        overflow: hidden; }
+th { background: var(--teal); color: white; font-weight: 700; padding: 2mm 2.4mm; text-align: right; font-size: 8.6pt; }
+td { padding: 1.6mm 2.4mm; text-align: right; vertical-align: top; border-top: 1px solid var(--line); }
+tr:nth-child(even) td { background: #f8fafc; }
+td[dir=ltr] { font-variant-numeric: tabular-nums; }
+.tcap { font-size: 8.6pt; color: var(--muted); margin: 0 0 5mm; }
+.tcap::before { content: "جدول " counter(tab, persian) " — "; color: var(--plum); font-weight: 700; }
+
+/* ---------- figures ---------- */
+.fig { counter-increment: fig; border: 1px solid var(--line); border-radius: 3mm; padding: 3mm 3mm 1.5mm;
+       margin: 4mm 0 5mm; break-inside: avoid; background: white; }
+.fig img { width: 100%; display: block; }
+.fig.narrow img { width: 62%; margin: 0 auto; }
+.fig p { margin: 0; }
+.fig .cap { font-size: 8.7pt; color: var(--muted); margin-top: 1.5mm; line-height: 1.7; }
+.fig .cap::before { content: "شکل " counter(fig, persian) " — "; color: var(--teal); font-weight: 700; }
+
+/* ---------- callouts ---------- */
+.find, .decide, .warn { border-radius: 2.5mm; padding: 2.5mm 4.5mm; margin: 3mm 0 4mm; break-inside: avoid; }
+.find { background: var(--amber-soft); border-right: 4px solid var(--amber); }
+.decide { background: var(--teal-soft); border-right: 4px solid var(--teal); }
+.warn { background: #fdf2f8; border-right: 4px solid #be185d; }
+.find > p:first-child::before { content: "یافته — "; font-weight: 700; color: var(--amber); font-family: "Noto Sans Arabic"; }
+.decide > p:first-child::before { content: "تصمیم — "; font-weight: 700; color: var(--teal); font-family: "Noto Sans Arabic"; }
+.warn > p:first-child::before { content: "هشدار نشت — "; font-weight: 700; color: #be185d; font-family: "Noto Sans Arabic"; }
+.find p, .decide p, .warn p { margin: .6mm 0; }
+.find ul, .decide ul, .warn ul { margin: 0; }
+
+code { font-family: "JetBrains Mono", monospace; font-size: 8.3pt; background: #f1f5f9; padding: 0 1.2mm;
+       border-radius: 1mm; direction: ltr; unicode-bidi: isolate; }
+bdi { unicode-bidi: isolate; white-space: nowrap; }
+.q { border: 1px solid var(--line); border-radius: 2.5mm; padding: 2mm 4mm; margin: 2mm 0; break-inside: avoid; }
+.q.chosen { border: 2px solid var(--teal); background: var(--teal-soft); }
+.refs { direction: ltr; text-align: left; font-size: 8.6pt; line-height: 1.6; }
+.refs li { text-align: left; }
+hr { border: none; border-top: 1px solid var(--line); margin: 6mm 0; }
+</style></head><body><div class="cover">
+<div class="band">
+<p class="course">پروژه‌ی درس تحلیل داده · پاییز ۱۴۰۵ · مسیر الف: NYC TLC Trip Record Data · گزارش فاز ۱</p>
+<h1>کجا و کِی تاکسی لازم می‌شود؟<br>پیش‌بینی یک‌روز‌جلوتر تقاضای ساعتی تاکسی زرد در نواحی نیویورک</h1>
+<p class="en">Day-ahead hourly pickup demand by taxi zone — NYC Yellow Taxi, January–June 2024</p>
+<div class="rule"></div>
+</div>
+<div class="kpis">
+<div class="kpi"><b>20.33M</b><span>سفر خام در شش فایل ماهانه</span></div>
+<div class="kpi"><b>1.68%</b><span>سطر حذف‌شده با ۸ قاعده‌ی «حذف»</span></div>
+<div class="kpi"><b>134</b><span>ناحیه‌ی فعال = ۹۹٫۵٪ سوارشدن‌ها</span></div>
+<div class="kpi"><b>20.0%</b><span>WAPE بهترین خط مبنا روی اعتبارسنجی</span></div>
+</div>
+<div class="who">
+<p><b>دانشجو:</b> فرناز حاج‌منوچهری — <b>شماره‌ی دانشجویی:</b> <bdi dir="ltr">401100111</bdi></p>
+<p><b>فاز:</b> ۱ — فهم مسئله، شناخت داده، ممیزی کیفیت و تحلیل اکتشافی</p>
+<p><b>کد و داده:</b> مخزن پروژه، پوشه‌های <code>taxidemand/</code> و <code>artifacts/phase1/</code> — برچسب <code>phase-1</code></p>
+</div>
+</div>
+<div class="toc">
+<ol>
+<li>خلاصه‌ی اجرایی</li>
+<li>صورت‌بندی مسئله و سه سؤال نامزد</li>
+<li>منشأ داده و نحوه‌ی تولید آن</li>
+<li>ممیزی ساختار داده</li>
+<li>ممیزی کیفیت و تصمیم‌های پاک‌سازی</li>
+<li>ممیزی زمان سفر</li>
+<li>سازگاری متغیرهای سفر</li>
+<li>ساخت‌نمای مکانی اولیه</li>
+<li>تحلیل تک‌متغیره و چندمتغیره</li>
+<li>سؤال سری زمانی و پنل ناحیه–ساعت</li>
+<li>خطر نشت اطلاعات</li>
+<li>طراحی تقسیم و خط مبنا</li>
+<li>بخش‌های پیشنهادی، اخلاق و محدودیت‌ها</li>
+</ol>
+</div>
+<h2>خلاصه‌ی اجرایی</h2>
+<p>این گزارش داده‌ی سفرهای <strong>تاکسی زرد نیویورک</strong> در شش ماه اول ۲۰۲۴ را (۲۰٬۳۳۲٬۰۹۳ سفر) از فایل خام تا یک پنل آماده‌ی پیش‌بینی بررسی می‌کند. سؤال اصلی پروژه این است: <strong>«تعداد سوارشدن‌ها در هر ناحیه‌ی تاکسی و هر ساعت فردا چقدر خواهد بود؟»</strong> پاسخ این سؤال به اپراتورها و رانندگان کمک می‌کند ناوگان را پیش از اوج تقاضا جابه‌جا کنند.</p>
+<div class="find">
+<ul>
+<li>داده <strong>مشاهده‌ای و اداری</strong> است: تاکسی‌متر آن را ثبت می‌کند، نه یک آزمایش کنترل‌شده. حدود ۱۰٪ سطرها (۱٬۹۷۵٬۹۸۵ سفر) یک <strong>بلوک فراداده‌ی گمشده</strong> دارند که تصادفی نیست: سهم آن از ۴٫۷٪ در ژانویه به ۱۱٫۹٪ در مارس می‌رسد و در ساعت ۴ صبح به ۲۶٪ می‌رسد.</li>
+<li>تقاضا به‌شدت <strong>متمرکز</strong> است: ۱۰ ناحیه ۳۷٫۷٪ و منهتن ۸۹٫۵٪ سوارشدن‌ها را دارند (ضریب جینی بین نواحی = ۰٫۸۵).</li>
+<li>سری زمانی <strong>دو فصل‌پذیری قوی</strong> دارد: روزانه (اوج ساعت ۱۸ حدود ۱۲ برابر کف ساعت ۴) و هفتگی. ۱۶ روز غیرعادی پیدا شد که بخشی از آن‌ها تعطیلات رسمی‌اند.</li>
+<li>بهترین خط مبنای ساده (میانگین «ناحیه × روز هفته × ساعت» روی داده‌ی آموزش) روی ماه اعتبارسنجی به <bdi dir='ltr'>WAPE = 20.0%</bdi> می‌رسد. این عدد، و نه میانگین ساده، معیار سنجش هر روش پیچیده‌تر است.</li>
+</ul>
+</div>
+<h2>صورت‌بندی مسئله و سه سؤال نامزد</h2>
+<p><strong>نیاز واقعی.</strong> تقاضای تاکسی در طول روز و بین نواحی بسیار نامتوازن است. رانندگان تاکسی زرد بیشتر «خیابانی» مسافر می‌گیرند و اگر ندانند تقاضا کجا شکل می‌گیرد، زمان زیادی را خالی رانندگی می‌کنند. یک پیش‌بینی <strong>یک‌روز‌جلوتر</strong> از تعداد سوارشدن‌ها در هر ناحیه و هر ساعت می‌تواند از سه تصمیم پشتیبانی کند:</p>
+<ol>
+<li><strong>برنامه‌ریزی شیفت و ناوگان:</strong> چند خودرو، چه ساعتی و در کدام منطقه.</li>
+<li><strong>هشدار تقاضای غیرعادی:</strong> اگر تقاضای واقعی خیلی از پیش‌بینی فاصله بگیرد (رویداد، برف، اختلال مترو)، باید علت را بررسی کرد.</li>
+<li><strong>برنامه‌ریزی تنظیم‌گر (TLC):</strong> مثلاً جای ایستگاه‌های تاکسی در فرودگاه‌ها و ارزیابی اثر سیاست‌هایی مانند congestion pricing (ژانویه‌ی ۲۰۲۵، خارج از بازه‌ی این پروژه).</li>
+</ol>
+<p>خروجی تحلیل <strong>یک عدد پیش‌بینی برای هر ناحیه و هر ساعت</strong> است. همراه آن بازه‌ی عدم‌قطعیت و فهرست نواحی و ساعت‌هایی که پیش‌بینی در آن‌ها قابل اعتماد نیست هم گزارش می‌شود. سؤال «بهترین مدل کدام است» هدف پروژه نیست.</p>
+<h3>سه سؤال نامزد</h3>
+<div class="q chosen">
+<p><strong>سؤال ۱ (انتخاب‌شده) — پیش‌بینی تقاضای ساعتی ناحیه‌ها.</strong> با اطلاعاتی که تا ساعت ۰۰:۰۰ روز D در دست است، تعداد سوارشدن‌ها در هر ناحیه‌ی فعال و هر ساعت روز D+1 چقدر است؟ واحد پیش‌بینی: ناحیه × ساعت.</p>
+</div>
+<div class="q">
+<p><strong>سؤال ۲ — پیش‌بینی مدت سفر در لحظه‌ی سوارشدن (ETA).</strong> با دانستن ناحیه‌ی مبدأ و مقصد و زمان، مدت سفر چقدر است؟ مشکل اصلی: <code>trip_distance</code> و کرایه پس از پایان سفر معلوم می‌شوند، پس بیشتر ستون‌ها در لحظه‌ی پیش‌بینی در دسترس نیستند.</p>
+</div>
+<div class="q">
+<p><strong>سؤال ۳ — تشخیص روزها و ساعت‌های غیرعادی.</strong> کدام روزها یا ساعت‌ها به‌طور معنادار از الگوی معمول فاصله دارند و آیا علت آن خطای داده است یا رخداد واقعی؟</p>
+</div>
+<div class="q">
+<p><strong>سؤال ۴ — پیش‌بینی انعام.</strong> انعام نقدی در داده ثبت نمی‌شود (جدول ۵): ۹۴٫۶٪ سفرهای کارتی انعام ثبت‌شده دارند و سفرهای نقدی تقریباً هیچ. پس برچسب برای ۱۳٫۵٪ سفرها به‌طور سیستماتیک صفر است و این سؤال کنار گذاشته شد.</p>
+</div>
+<div class="decide">
+<p>سؤال ۱ انتخاب شد، چون (الف) مستقیماً از یک تصمیم عملیاتی پشتیبانی می‌کند؛ (ب) هدف آن (شمارش سوارشدن) از تعداد سطرها به دست می‌آید و به ستون‌های پرخطای کرایه وابسته نیست؛ (ج) الزام سری زمانی مسیر الف را به‌صورت طبیعی پوشش می‌دهد؛ و (د) سؤال ۳ (روزهای غیرعادی) روی همان پنل ناحیه–ساعت قابل بررسی است و در بخش ۶ هم به آن پرداخته شده است.</p>
+</div>
+<h2>منشأ داده و نحوه‌ی تولید آن</h2>
+<table>
+<thead>
+<tr>
+<th>ویژگی</th>
+<th>توضیح</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ناشر</td>
+<td>NYC Taxi &amp; Limousine Commission (TLC) — صفحه‌ی رسمی TLC Trip Record Data</td>
+</tr>
+<tr>
+<td>نوع سرویس انتخابی</td>
+<td>Yellow Taxi (TPEP) — فقط یک نوع سرویس، برای کنترل حجم و یکدست بودن رفتار</td>
+</tr>
+<tr>
+<td>بازه</td>
+<td>۱ ژانویه تا ۳۰ ژوئن ۲۰۲۴ (شش فایل Parquet ماهانه، در مجموع ≈ ۳۴۲ مگابایت)</td>
+</tr>
+<tr>
+<td>فایل کمکی</td>
+<td><code>taxi_zone_lookup.csv</code>: نگاشت ۲۶۵ شناسه‌ی ناحیه به borough و نام ناحیه</td>
+</tr>
+<tr>
+<td>نحوه‌ی تولید</td>
+<td>تاکسی‌متر و سامانه‌ی TPEP هر سفر را ثبت می‌کنند و ارائه‌دهندگان فناوری (vendor) آن را به TLC می‌فرستند. داده <strong>مشاهده‌ای و اداری</strong> است و فرایند کنترل‌شده‌ای پشت آن نیست.</td>
+</tr>
+<tr>
+<td>واحد مشاهده</td>
+<td>یک سفر (از سوارشدن تا پیاده‌شدن)؛ شناسه‌ی یکتای سفر وجود ندارد</td>
+</tr>
+<tr>
+<td>مکان</td>
+<td>فقط در سطح <strong>ناحیه‌ی تاکسی</strong> (۲۶۳ ناحیه + دو کد «نامعلوم/خارج از NYC»)؛ مختصات GPS از ۲۰۱۶ به بعد منتشر نمی‌شود</td>
+</tr>
+<tr>
+<td>یکپارچگی</td>
+<td>SHA-256 هر فایل در <code>params.toml</code> ثبت و در <code>taxidemand/fetch.py</code> بررسی می‌شود</td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>شناسنامه‌ی داده.</p>
+<p><strong>محدودیت‌های تولید داده.</strong> (۱) داده فقط سفرهایی را نشان می‌دهد که <strong>انجام شده‌اند</strong>؛ تقاضای برآورده‌نشده (مسافری که تاکسی پیدا نکرد) دیده نمی‌شود. پس «تقاضا» در این پروژه در واقع <strong>تقاضای محقق‌شده</strong> است. (۲) سفرهای Uber/Lyft (FHVHV) و تاکسی سبز در فایل‌های جداگانه‌اند. سهم تاکسی زرد از کل بازار سفر کم است و جای خالی آن در بیرون منهتن بیشتر است. (۳) TLC فایل‌ها را گاهی بازنشر و اصلاح می‌کند، و همین سطرهای خارج از ماه را توضیح می‌دهد (بخش ۵). (۴) کدهای vendor و payment از دیکشنری داده‌ی به‌روز TLC گرفته شده‌اند: vendor ۱ = Creative Mobile Technologies، ۲ = Curb Mobility، ۶ = Myle Technologies؛ payment ۰ = Flex Fare.</p>
+<h2>ممیزی ساختار داده</h2>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_01_flow.png" /></p>
+<p class="cap">جریان داده در فاز ۱: از فایل‌های خام تا پنل ناحیه–ساعت و تقسیم زمانی. هر جعبه یک ماژول در <code>taxidemand/</code> است.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>فایل</th>
+<th>سطرها</th>
+<th></th>
+<th>فایل</th>
+<th>سطرها</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir='ltr'>2024-01</td>
+<td dir='ltr'>2,964,624</td>
+<td dir='ltr'></td>
+<td dir='ltr'>2024-04</td>
+<td dir='ltr'>3,514,289</td>
+</tr>
+<tr>
+<td dir='ltr'>2024-02</td>
+<td dir='ltr'>3,007,526</td>
+<td dir='ltr'></td>
+<td dir='ltr'>2024-05</td>
+<td dir='ltr'>3,723,833</td>
+</tr>
+<tr>
+<td dir='ltr'>2024-03</td>
+<td dir='ltr'>3,582,628</td>
+<td dir='ltr'></td>
+<td dir='ltr'>2024-06</td>
+<td dir='ltr'>3,539,193</td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>تعداد سطر هر فایل ماهانه؛ مجموع ۲۰٬۳۳۲٬۰۹۳ سطر و ۱۹ ستون خام.</p>
+<p>ستون‌ها چهار گروه دارند: <strong>شناسه و زمان</strong> (<code>VendorID</code>، <code>tpep_pickup_datetime</code>، <code>tpep_dropoff_datetime</code>)، <strong>مکان</strong> (<code>PULocationID</code>، <code>DOLocationID</code> که به <code>LocationID</code> فایل lookup وصل می‌شوند)، <strong>ویژگی سفر</strong> (<code>passenger_count</code>، <code>trip_distance</code>، <code>RatecodeID</code>، <code>store_and_fwd_flag</code>، <code>payment_type</code>) و <strong>۱۰ ستون پولی</strong> (<code>fare_amount</code> تا <code>Airport_fee</code>). نوع ستون‌ها هنگام خواندن کوچک می‌شود (مثلاً int16 برای ناحیه و float32 برای مبلغ)، تا ۲۰ میلیون سطر در حدود ۱٫۷ گیگابایت حافظه جا شود. جدول کامل در <code>tables/schema.csv</code> آمده است.</p>
+<ul>
+<li><strong>کلید اتصال:</strong> همه‌ی ۲۶۲ شناسه‌ی مبدأ دیده‌شده در lookup وجود دارند (۰ سطر بی‌جفت). ۳ ناحیه از ۲۶۳ ناحیه‌ی واقعی در کل شش ماه هیچ سوارشدنی ندارند.</li>
+<li><strong>کلید یکتا:</strong> داده شناسه‌ی سفر ندارد. تکرار را با ترکیب ۱۳ ستون خام بررسی کردیم و فقط <strong>۱ سطر</strong> تکراری بود.</li>
+<li><strong>متغیرهای زمانی:</strong> زمان‌ها به وقت محلی نیویورک و بدون منطقه‌ی زمانی ذخیره شده‌اند. این نکته در تغییر ساعت تابستانی دیده می‌شود (بخش ۶).</li>
+</ul>
+<h2>ممیزی کیفیت و تصمیم‌های پاک‌سازی</h2>
+<p>برای هر مشکل یک قاعده‌ی بولی در <code>taxidemand/checks.py</code> تعریف شد. هر قاعده یک تصمیم صریح دارد: حذف، نگه‌داشتن با پرچم، یا کدگذاری دوباره.</p>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_06_quality_rules.png" /></p>
+<p class="cap">تعداد سطرهایی که هر قاعده پرچم می‌زند (محور لگاریتمی). قرمز = حذف، کهربایی = نگه‌داشتن با پرچم، خاکستری = کدگذاری دوباره یا خارج کردن از پنل.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>قاعده</th>
+<th>سطرها</th>
+<th>درصد</th>
+<th>تصمیم</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>بلوک فراداده‌ی گمشده (<bdi dir='ltr'>payment_type = 0</bdi>)</td>
+<td dir='ltr'>1,975,985</td>
+<td dir='ltr'>9.72</td>
+<td>نگه‌داشتن برای تقاضا؛ کنار گذاشتن از مدل‌های کرایه</td>
+</tr>
+<tr>
+<td>مسافت صفر</td>
+<td dir='ltr'>364,322</td>
+<td dir='ltr'>1.79</td>
+<td>نگه‌داشتن برای تقاضا؛ کنار گذاشتن از تحلیل سرعت و کرایه</td>
+</tr>
+<tr>
+<td>کرایه/مبلغ منفی (برگشت یا ابطال)</td>
+<td dir='ltr'>316,694</td>
+<td dir='ltr'>1.56</td>
+<td>حذف سطر منفی؛ جفت مثبت آن نگه داشته می‌شود</td>
+</tr>
+<tr>
+<td dir='ltr'><bdi dir='ltr'>passenger_count = 0</bdi></td>
+<td dir='ltr'>221,109</td>
+<td dir='ltr'>1.09</td>
+<td>«نامعلوم» در نظر گرفته می‌شود</td>
+</tr>
+<tr>
+<td><bdi dir='ltr'>RatecodeID = 99</bdi> (خارج از دیکشنری)</td>
+<td dir='ltr'>214,773</td>
+<td dir='ltr'>1.06</td>
+<td>گمشده در نظر گرفته می‌شود</td>
+</tr>
+<tr>
+<td>ناحیه‌ی مبدأ ۲۶۴/۲۶۵ (نامعلوم)</td>
+<td dir='ltr'>76,985</td>
+<td dir='ltr'>0.38</td>
+<td>خارج از پنل ناحیه‌ای</td>
+</tr>
+<tr>
+<td>مدت کمتر از ۱ دقیقه با مسافت مثبت</td>
+<td dir='ltr'>73,413</td>
+<td dir='ltr'>0.36</td>
+<td>پرچم</td>
+</tr>
+<tr>
+<td>total ≠ مجموع اجزا (پس از قرارداد vendor)</td>
+<td dir='ltr'>37,755</td>
+<td dir='ltr'>0.19</td>
+<td>پرچم</td>
+</tr>
+<tr>
+<td>مدت بیش از ۵ ساعت</td>
+<td dir='ltr'>11,609</td>
+<td dir='ltr'>0.057</td>
+<td>حذف</td>
+</tr>
+<tr>
+<td>سرعت ضمنی بیش از ۸۰ mph</td>
+<td dir='ltr'>6,718</td>
+<td dir='ltr'>0.033</td>
+<td>حذف</td>
+</tr>
+<tr>
+<td>پیاده‌شدن هم‌زمان یا قبل از سوارشدن</td>
+<td dir='ltr'>6,177</td>
+<td dir='ltr'>0.030</td>
+<td>حذف</td>
+</tr>
+<tr>
+<td>مسافت بیش از ۲۰۰ مایل</td>
+<td dir='ltr'>539</td>
+<td dir='ltr'>0.003</td>
+<td>حذف</td>
+</tr>
+<tr>
+<td>ماه سفر ≠ ماه فایل (داخل بازه)</td>
+<td dir='ltr'>149</td>
+<td dir='ltr'>0.001</td>
+<td>نگه‌داشتن</td>
+</tr>
+<tr>
+<td>خارج از بازه (۲۰۰۲ تا ۲۰۲۶)</td>
+<td dir='ltr'>39</td>
+<td dir='ltr'>0.0002</td>
+<td>حذف</td>
+</tr>
+<tr>
+<td>کرایه بیش از ۱۰۰۰ دلار</td>
+<td dir='ltr'>15</td>
+<td dir='ltr'>0.0001</td>
+<td>حذف</td>
+</tr>
+<tr>
+<td><strong>اجتماع قواعد حذف</strong></td>
+<td dir='ltr'><strong>341,105</strong></td>
+<td dir='ltr'><strong>1.68</strong></td>
+<td><strong>۱۹٬۹۹۰٬۹۸۸ سفر پاک</strong></td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>قواعد کیفیت و تصمیم اولیه. خروجی کامل: <code>tables/quality_rules.csv</code>.</p>
+<div class="find">
+<p><strong>ناسازگاری ظاهری مبلغ کل یک قرارداد کدگذاری است، نه خطا.</strong> اگر total را با جمع ساده‌ی همه‌ی اجزا مقایسه کنیم، <strong>۲۹٫۱٪</strong> سطرها ناسازگار به نظر می‌رسند. اختلاف همیشه دقیقاً ۲٫۵۰± یا ۱٫۷۵ یا ۴٫۲۵ دلار است. علت این است که vendor ۱ عوارض congestion (۲٫۵۰) و فرودگاه (۱٫۷۵) را درون ستون <code>extra</code> هم می‌گذارد، و در بلوک فراداده‌ی گمشده عوارض ۲٫۵۰ دلاری دریافت شده ولی در ستون خودش ثبت نشده است. با این قرارداد، ناسازگاری به <strong>۰٫۱۹٪</strong> کاهش می‌یابد.</p>
+</div>
+<p><strong>برگشت‌ها.</strong> از ۳۱۶٬۶۹۴ سطر منفی، ۲۲۶٬۰۶۸ (۷۱٪) یک جفت مثبت دقیق دارند (همان vendor، زمان‌ها، نواحی و |کرایه|). یعنی این سطرها اصلاحیه‌ی یک سفر واقعی‌اند، نه سفر جدید. برای شمارش تقاضا فقط سطر منفی حذف می‌شود، چون سفر واقعاً انجام شده است.</p>
+<h3>سازوکار گمشدگی</h3>
+<p>پنج ستون <code>passenger_count</code>، <code>RatecodeID</code>، <code>store_and_fwd_flag</code>، <code>congestion_surcharge</code> و <code>Airport_fee</code> <strong>دقیقاً در همان ۱٬۹۷۵٬۹۸۵ سطر</strong> با هم گم شده‌اند. همه‌ی این سطرها <code>payment_type = 0</code> (Flex Fare) دارند. آزمون‌ها نشان می‌دهند این گمشدگی <strong>تصادفی (MCAR) نیست</strong>:</p>
+<ul>
+<li>سهم بلوک بین vendorها تقریباً برابر است (۹٫۵٪ و ۹٫۸٪)، ولی هر ۱٬۲۴۸ سطر vendor ۶ در این بلوک‌اند (χ² با p &lt; 0.001).</li>
+<li>سهم بلوک با زمان تغییر می‌کند: از ۴٫۷٪ در ژانویه به حدود ۱۱–۱۲٪ از مارس به بعد، و از ۵٫۲٪ در ساعت ۱۰ صبح تا ۲۶٫۲٪ در ساعت ۴ صبح.</li>
+<li>میانه‌ی کرایه در این بلوک بیشتر است: ۱۷٫۶۱ دلار در برابر ۱۲٫۸۰ دلار (Mann–Whitney، p &lt; 0.001).</li>
+</ul>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_07_missing_block.png" /></p>
+<p class="cap">بلوک فراداده‌ی گمشده بر حسب ماه و ساعت، و توزیع کرایه‌ی آن در مقایسه با سطرهای کامل. پیک ۷۰ دلاری در سطرهای کامل، کرایه‌ی ثابت فرودگاه JFK است.</p>
+</div>
+<div class="decide">
+<p>سازوکار گمشدگی در بهترین حالت MAR است (به زمان و نوع سفر وابسته است). حذف این سطرها تقاضای شبانه را حدود یک‌چهارم کمتر نشان می‌داد. برای همین <strong>برای شمارش تقاضا همه‌ی این سطرها نگه داشته می‌شوند</strong> و برای تحلیل‌های مسافر یا کرایه، یک شاخص گمشدگی به‌همراه مقدار «نامعلوم» به کار می‌رود، نه جایگزینی با میانگین.</p>
+</div>
+<h2>ممیزی زمان سفر</h2>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_02_daily.png" /></p>
+<p class="cap">تعداد سفر روزانه در برابر میانه‌ی همان روز هفته در پنجره‌ی ±۳ هفته. نقطه‌های کهربایی تعطیلات رسمی‌اند و دایره‌های قرمز روزهایی هستند که هم z مقاوم بیش از ۳٫۵ دارند و هم دست‌کم ۱۰٪ از مقدار مورد انتظار فاصله دارند.</p>
+</div>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_03_hour_weekday.png" /></p>
+<p class="cap">میانگین سوارشدن در هر ساعت (هزار سفر) بر حسب روز هفته و ساعت.</p>
+</div>
+<ul>
+<li><strong>روند و فصل:</strong> میانگین روزانه ۱۰۹٬۸۴۱ سفر است. تعداد سفر ماهانه از ۲٫۹۲ میلیون در ژانویه به ۳٫۶۶ میلیون در مه می‌رسد (+۲۵٪). این روند اهمیت تقسیم زمانی را نشان می‌دهد، چون میانگین آموزش از سطح ماه‌های بعد کمتر است.</li>
+<li><strong>ساعت:</strong> اوج ساعت ۱۸ و کف ساعت ۴ صبح است (نسبت ۱۲٫۲). صبح‌های آخر هفته در ساعت‌های ۰ تا ۳ از روزهای کاری شلوغ‌ترند (اثر شب‌گردی).</li>
+<li><strong>روز هفته:</strong> پنجشنبه شلوغ‌ترین روز (۱۲۳٬۵۲۷ سفر در روز) و دوشنبه خلوت‌ترین (۹۱٬۹۶۱) است.</li>
+<li><strong>ساعت گمشده:</strong> در کل ۴٬۳۶۸ ساعت بازه، فقط یک ساعت هیچ سفری ندارد: <strong>۲۰۲۴-۰۳-۱۰ ساعت ۰۲:۰۰</strong>، یعنی ساعتی که با شروع ساعت تابستانی وجود ندارد. پنل ساعتی باید این ساعت را «ناموجود» در نظر بگیرد، نه «صفر تقاضا». کم‌ترین ساعت واقعی ۱۳۶ سفر دارد.</li>
+<li><strong>زمان‌های غیرممکن:</strong> ۳۹ سفر خارج از بازه‌اند (از ۲۰۰۲-۱۲-۳۱ تا ۲۰۲۶-۰۶-۲۶) و ۱۴۹ سفر در فایل ماه دیگری منتشر شده‌اند. نمونه‌های ۲۰۰۲ احتمالاً ساعت تنظیم‌نشده‌ی تاکسی‌مترند.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>تاریخ</th>
+<th>سفر</th>
+<th>مورد انتظار</th>
+<th>انحراف</th>
+<th>توضیح احتمالی</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir='ltr'>2024-01-02</td>
+<td dir='ltr'>74,316</td>
+<td dir='ltr'>92,734</td>
+<td dir='ltr'>−19.9%</td>
+<td>روز پس از سال نو</td>
+</tr>
+<tr>
+<td dir='ltr'>2024-01-06 / 07</td>
+<td dir='ltr'>95,668 / 66,451</td>
+<td dir='ltr'>107,214 / 91,338</td>
+<td dir='ltr'>−10.8% / −27.2%</td>
+<td>آخر هفته‌ی پس از تعطیلات؛ برای بررسی با داده‌ی هوا</td>
+</tr>
+<tr>
+<td dir='ltr'>2024-02-13</td>
+<td dir='ltr'>68,047</td>
+<td dir='ltr'>100,381</td>
+<td dir='ltr'>−32.2%</td>
+<td>هم‌زمان با برف ۱۳ فوریه؛ باید با داده‌ی NOAA تأیید شود</td>
+</tr>
+<tr>
+<td dir='ltr'>2024-02-14</td>
+<td dir='ltr'>120,031</td>
+<td dir='ltr'>102,967</td>
+<td dir='ltr'>+16.6%</td>
+<td>روز ولنتاین و جبران روز قبل (فرضیه)</td>
+</tr>
+<tr>
+<td dir='ltr'>2024-03-30</td>
+<td dir='ltr'>110,344</td>
+<td dir='ltr'>128,855</td>
+<td dir='ltr'>−14.4%</td>
+<td>شنبه‌ی پیش از عید پاک</td>
+</tr>
+<tr>
+<td dir='ltr'>2024-04-02 / 03</td>
+<td dir='ltr'>129,206 / 137,142</td>
+<td dir='ltr'>110,173 / 118,520</td>
+<td dir='ltr'>+17.3% / +15.7%</td>
+<td>نامعلوم؛ نامزد بررسی با داده‌ی هوا</td>
+</tr>
+<tr>
+<td>2024-05-25 تا 28</td>
+<td dir='ltr'>88,175 … 103,021</td>
+<td dir='ltr'>129,031 … 119,739</td>
+<td>−14% تا −32%</td>
+<td>آخر هفته‌ی طولانی Memorial Day</td>
+</tr>
+<tr>
+<td dir='ltr'>2024-06-30</td>
+<td dir='ltr'>89,585</td>
+<td dir='ltr'>102,773</td>
+<td dir='ltr'>−12.8%</td>
+<td>نامعلوم</td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>نمونه‌ای از ۱۶ روز غیرعادی (فهرست کامل در <code>tables/daily_anomalies.csv</code>). علت‌ها فرضیه‌اند و با داده‌ی بیرونی (مثل هوا) آزموده نشده‌اند.</p>
+<div class="find">
+<p>روزهای غیرعادی دو نوع‌اند: <strong>رخداد واقعی</strong> (تعطیلات، برف، آخر هفته‌ی طولانی) که داده‌ی معتبری است و مدل باید آن را از تقویم یاد بگیرد، و <strong>خطای داده</strong> (ساعت ۲۰۰۲، ساعت تابستانی) که باید پیش از مدل‌سازی برطرف شود.</p>
+</div>
+<h2>سازگاری متغیرهای سفر</h2>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_05_consistency.png" /></p>
+<p class="cap">رابطه‌ی کرایه، مسافت و مدت برای سفرهای نرخ استاندارد (نمونه‌ی ۱ میلیونی)، و سرعت ضمنی بر حسب ساعت. خط‌چین قرمز کف تاکسی‌متر است: ۳ دلار + ۰٫۷۰ دلار به ازای هر ۱/۵ مایل.</p>
+</div>
+<ul>
+<li>همبستگی رتبه‌ای اسپیرمن: مسافت–کرایه = ۰٫۹۲، مدت–کرایه = ۰٫۹۷، مسافت–مدت = ۰٫۸۳. کرایه بیشتر از مسافت به <strong>مدت</strong> وابسته است، چون تاکسی‌متر در ترافیک بر اساس زمان حساب می‌کند.</li>
+<li>تقریباً هیچ سفری زیر خط کف تاکسی‌متر نیست (۰٫۰۰۹٪ با کرایه‌ی کمتر از ۳ دلار). میانه‌ی کرایه به ازای هر مایل ۷٫۴۵ دلار است، یعنی حدود دو برابر نرخ پایه‌ی مسافت. این اختلاف سهم زمان انتظار در ترافیک است.</li>
+<li><strong>سرعت ضمنی</strong> یک الگوی روزانه‌ی معقول دارد: میانه از ۸٫۱ mph در ساعت ۱۵ تا ۱۶٫۱ mph در ساعت ۵ صبح. سرعت بیش از ۸۰ mph (۶٬۷۱۸ سفر) غیرممکن است و حذف شد.</li>
+<li>خوشه‌ی افقی در کرایه‌ی ۷۰ دلار، کرایه‌ی ثابت JFK–منهتن است (<bdi dir='ltr'>RatecodeID = 2</bdi>، برابر ۳٫۶٪ سفرها). در مدل‌های کرایه باید جدا در نظر گرفته شود.</li>
+</ul>
+<h2>ساخت‌نمای مکانی اولیه</h2>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_08_zones.png" /></p>
+<p class="cap">منحنی تمرکز سوارشدن در ۲۶۳ ناحیه و ۱۵ ناحیه‌ی پرتقاضا (سبز = منهتن، کهربایی = فرودگاه‌های کوئینز).</p>
+</div>
+<div class="fig narrow">
+<p><img alt="" src="../artifacts/phase1/figures/p1_09_od_borough.png" /></p>
+<p class="cap">ماتریس مبدأ–مقصد در سطح borough (درصد از کل سفرهای پاک).</p>
+</div>
+<div class="find">
+<ul>
+<li>نواحی به‌شدت نامتوازن‌اند: ۱۰ ناحیه ۳۷٫۷٪، ۲۵ ناحیه ۷۲٪ و ۶۹ ناحیه ۹۸٪ سوارشدن‌ها را دارند (جینی = ۰٫۸۵۵). ۳۸ ناحیه کمتر از یک سوارشدن در روز دارند.</li>
+<li>منهتن ۸۹٫۵٪، کوئینز ۸٫۹٪ (بیشتر فرودگاه‌ها)، بروکلین ۱٫۲۵٪ و برانکس ۰٫۲۹٪ سوارشدن‌ها را دارند. <strong>۸۴٫۲٪</strong> همه‌ی سفرها درون منهتن است.</li>
+<li>دو فرودگاه JFK و LaGuardia با هم ۷٫۶٪ سوارشدن‌ها را دارند. الگوی ساعتی آن‌ها با بقیه‌ی شهر فرق دارد و به برنامه‌ی پروازها وابسته است (شکل ۱۰).</li>
+<li>پیامد برای مدل: خطای کل را چند ده ناحیه‌ی پرتقاضا تعیین می‌کنند. برای همین در کنار WAPE کلی، خطا برای گروه‌های ناحیه (منهتن مرکزی، فرودگاه، بیرون منهتن) جداگانه گزارش می‌شود.</li>
+</ul>
+</div>
+<h2>تحلیل تک‌متغیره و چندمتغیره</h2>
+<table>
+<thead>
+<tr>
+<th>متغیر</th>
+<th>n</th>
+<th>میانگین</th>
+<th>میانه</th>
+<th>انحراف معیار</th>
+<th>IQR</th>
+<th>صدک ۱</th>
+<th>صدک ۹۹</th>
+<th>چولگی</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir='ltr'>trip_distance (mi)</td>
+<td dir='ltr'>19,990,988</td>
+<td dir='ltr'>3.30</td>
+<td dir='ltr'>1.76</td>
+<td dir='ltr'>4.33</td>
+<td dir='ltr'>2.28</td>
+<td dir='ltr'>0.00</td>
+<td dir='ltr'>19.84</td>
+<td dir='ltr'>3.1</td>
+</tr>
+<tr>
+<td dir='ltr'>duration_min</td>
+<td dir='ltr'>19,990,988</td>
+<td dir='ltr'>16.21</td>
+<td dir='ltr'>12.58</td>
+<td dir='ltr'>13.33</td>
+<td dir='ltr'>12.60</td>
+<td dir='ltr'>1.12</td>
+<td dir='ltr'>67.75</td>
+<td dir='ltr'>2.7</td>
+</tr>
+<tr>
+<td dir='ltr'>speed_mph</td>
+<td dir='ltr'>19,990,988</td>
+<td dir='ltr'>10.87</td>
+<td dir='ltr'>9.37</td>
+<td dir='ltr'>6.43</td>
+<td dir='ltr'>5.86</td>
+<td dir='ltr'>0.00</td>
+<td dir='ltr'>34.62</td>
+<td dir='ltr'>1.9</td>
+</tr>
+<tr>
+<td dir='ltr'>fare_amount ($)</td>
+<td dir='ltr'>19,990,988</td>
+<td dir='ltr'>19.43</td>
+<td dir='ltr'>13.50</td>
+<td dir='ltr'>17.68</td>
+<td dir='ltr'>12.60</td>
+<td dir='ltr'>3.70</td>
+<td dir='ltr'>77.20</td>
+<td dir='ltr'>4.1</td>
+</tr>
+<tr>
+<td dir='ltr'>tip_amount ($)</td>
+<td dir='ltr'>19,990,988</td>
+<td dir='ltr'>3.32</td>
+<td dir='ltr'>2.66</td>
+<td dir='ltr'>4.01</td>
+<td dir='ltr'>4.20</td>
+<td dir='ltr'>0.00</td>
+<td dir='ltr'>17.54</td>
+<td dir='ltr'>3.7</td>
+</tr>
+<tr>
+<td dir='ltr'>total_amount ($)</td>
+<td dir='ltr'>19,990,988</td>
+<td dir='ltr'>28.18</td>
+<td dir='ltr'>21.00</td>
+<td dir='ltr'>22.19</td>
+<td dir='ltr'>14.15</td>
+<td dir='ltr'>8.40</td>
+<td dir='ltr'>104.88</td>
+<td dir='ltr'>3.4</td>
+</tr>
+<tr>
+<td dir='ltr'>passengers</td>
+<td dir='ltr'>18,076,152</td>
+<td dir='ltr'>1.33</td>
+<td dir='ltr'>1</td>
+<td dir='ltr'>0.83</td>
+<td dir='ltr'>0</td>
+<td dir='ltr'>0</td>
+<td dir='ltr'>5</td>
+<td dir='ltr'>3.0</td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>آمار خلاصه‌ی متغیرهای اصلی پس از پاک‌سازی. همه‌ی متغیرهای پیوسته چوله به راست‌اند، پس میانه و IQR معیار مناسب‌تری از میانگین و انحراف معیارند.</p>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_04_distributions.png" /></p>
+<p class="cap">توزیع مسافت، مدت و کرایه (محور لگاریتمی) و سرعت. خط کهربایی میانه است.</p>
+</div>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_13_payment_tips.png" /></p>
+<p class="cap">نوع پرداخت و سهم سفرهایی که انعام ثبت‌شده دارند. انعام نقدی در داده دیده نمی‌شود.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>نوع پرداخت</th>
+<th>سهم سفرها</th>
+<th>سفرهای دارای انعام ثبت‌شده</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>کارت اعتباری</td>
+<td dir='ltr'>75.5%</td>
+<td dir='ltr'>94.6%</td>
+</tr>
+<tr>
+<td>نقد</td>
+<td dir='ltr'>13.5%</td>
+<td dir='ltr'>0.005%</td>
+</tr>
+<tr>
+<td>نامعلوم (Flex Fare)</td>
+<td dir='ltr'>9.6%</td>
+<td dir='ltr'>17.0%</td>
+</tr>
+<tr>
+<td>اختلاف/اعتراض</td>
+<td dir='ltr'>0.9%</td>
+<td dir='ltr'>0.13%</td>
+</tr>
+<tr>
+<td>بدون هزینه</td>
+<td dir='ltr'>0.5%</td>
+<td dir='ltr'>0.27%</td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>پرداخت و انعام (نمونه‌ی ۲ میلیونی). سهم vendor ۲ برابر ۷۵٫۴٪ و vendor ۱ برابر ۲۴٫۶٪ است.</p>
+<h2>سؤال سری زمانی و پنل ناحیه–ساعت</h2>
+<p><strong>تعریف دقیق.</strong> برای هر ناحیه‌ی فعال z و هر ساعت h، مقدار y(z, h) تعداد سفرهایی است که در آن ساعت در آن ناحیه آغاز شده‌اند. پیش‌بینی در نیمه‌شب روز D برای ۲۴ ساعت روز D+1 صادر می‌شود، پس هر ویژگی باید دست‌کم ۲۴ ساعت قدیمی‌تر از هدف باشد. پنل کامل ۲۶۳ × ۴٬۳۶۸ = ۱٬۱۴۸٬۷۸۴ ناحیه–ساعت دارد و ساعت‌های بدون سفر با صفر پر شده‌اند.</p>
+<ul>
+<li><strong>ناحیه‌ی فعال:</strong> ناحیه‌ای که در دوره‌ی <strong>آموزش</strong> دست‌کم ۱۰ سوارشدن در روز داشته باشد. ۱۳۴ ناحیه این شرط را دارند و ۹۹٫۵۵٪ سوارشدن‌های دوره‌ی آموزش را پوشش می‌دهند. این فهرست فقط از داده‌ی آموزش ساخته شده تا از آینده اطلاعاتی به آن نرسد.</li>
+<li>در نواحی فعال، میانگین ۳۳٫۹، میانه ۲ و بیشینه ۸۳۸ سوارشدن در ساعت است، و <strong>۲۷٫۶٪</strong> ناحیه–ساعت‌ها صفرند. هدف، شمارشیِ پرصفر و پراکنده است؛ به همین دلیل MAPE (که روی صفر تعریف نمی‌شود) کنار گذاشته شد و WAPE معیار اصلی است.</li>
+</ul>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_10_series_acf.png" /></p>
+<p class="cap">چپ: سری ساعتی چهار ناحیه در یک هفته. فرودگاه JFK الگوی متفاوتی دارد و East Village در شب‌های آخر هفته اوج دارد. راست: خودهمبستگی سری ساعتی کل شهر، با قله‌هایی در تأخیرهای ۲۴، ۱۶۸ و ۳۳۶ ساعت.</p>
+</div>
+<div class="find">
+<p>خودهمبستگی در تأخیر ۱۶۸ ساعت (یک هفته) از تأخیر ۲۴ ساعت بیشتر است، چون الگوی روز کاری با آخر هفته فرق دارد. پس «همان ساعت هفته‌ی قبل» خط مبنای طبیعی‌تری از «همان ساعت دیروز» است، و جدول ۷ هم همین را تأیید می‌کند. نواحی هم الگوی هفتگی متفاوتی دارند (اداری، تفریحی شبانه، فرودگاه). این تفاوت پایه‌ی بخش بدون ناظر پیشنهادی (بخش ۱۳) است.</p>
+</div>
+<h2>خطر نشت اطلاعات</h2>
+<div class="warn">
+<p>اطلاعاتی که در لحظه‌ی صدور پیش‌بینی (نیمه‌شب روز D) <strong>در دسترس نیست</strong> و نباید وارد مدل شود:</p>
+<ul>
+<li><strong>تأخیرهای کمتر از ۲۴ ساعت</strong> (مثل <code>lag_1</code>) و آماره‌های غلتانی که ساعت‌های روز D را شامل می‌شوند.</li>
+<li><strong>ویژگی‌های پس از سفر</strong> مانند مدت، مسافت، کرایه، انعام و مقصد. این‌ها پس از پیاده‌شدن معلوم می‌شوند. در پیش‌بینی تقاضا فقط از شمارش‌های گذشته استفاده می‌شود.</li>
+<li><strong>آماره‌های سراسری</strong> (میانگین ناحیه، scaler، فهرست نواحی فعال، کدگذاری هدف) که روی کل شش ماه حساب شوند. همه فقط روی آموزش fit می‌شوند.</li>
+<li><strong>داده‌ی هوای واقعی روز هدف.</strong> در عمل فقط پیش‌بینی هوا در دسترس است.</li>
+<li><strong>اصلاحیه‌های بعدی TLC.</strong> فایل‌های بازنشرشده سفرهای اصلاح‌شده‌ای دارند که در زمان واقعی وجود نداشتند. این را به‌عنوان محدودیت گزارش می‌کنیم.</li>
+</ul>
+</div>
+<p><strong>نمایش عملی.</strong> یک مدل gradient boosting یکسان با سه طراحی ارزیابی شد:</p>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_12_leakage.png" /></p>
+<p class="cap">خطای یک مدل یکسان در سه طراحی. A از ساعت قبل و بعد (t−1 و t+1) استفاده می‌کند. این کار فقط با تقسیم تصادفی سطرها ممکن است و در عمل وجود ندارد.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>طراحی</th>
+<th>ویژگی‌ها</th>
+<th>MAE</th>
+<th>RMSE</th>
+<th>WAPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. تقسیم تصادفی + همسایه‌های t−1 و t+1</td>
+<td dir='ltr'>zone, hour, dow, lag_1, lead_1</td>
+<td dir='ltr'>4.97</td>
+<td dir='ltr'>11.28</td>
+<td dir='ltr'>14.7%</td>
+</tr>
+<tr>
+<td>B. تقسیم تصادفی + تأخیرهای مجاز</td>
+<td dir='ltr'>zone, hour, dow, lag_24, lag_168</td>
+<td dir='ltr'>6.36</td>
+<td dir='ltr'>15.30</td>
+<td dir='ltr'>18.9%</td>
+</tr>
+<tr>
+<td>C. تقسیم زمانی + تأخیرهای مجاز</td>
+<td dir='ltr'>zone, hour, dow, lag_24, lag_168</td>
+<td dir='ltr'>6.86</td>
+<td dir='ltr'>16.83</td>
+<td dir='ltr'>18.8%</td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>نمایش نشت روی نواحی فعال (ژانویه تا مه). خروجی: <code>tables/leakage_designs.csv</code>.</p>
+<div class="find">
+<p>تقسیم تصادفی <strong>به‌همراه ویژگی همسایه‌ی زمانی</strong> خطا را حدود ۲۲٪ کمتر از واقع نشان می‌دهد (WAPE ۱۴٫۷٪ در برابر ۱۸٫۸٪). وقتی فقط تأخیرهای مجاز به کار می‌روند، WAPE دو تقسیم تقریباً برابر است، ولی MAE و RMSE در تقسیم زمانی بدترند و سوگیری مثبت (+۰٫۳۵) دارد، چون تقاضای مه از سطح آموزش بالاتر است. پس خطر اصلی <strong>ویژگی‌هایی است که از آینده می‌آیند</strong>. تقسیم زمانی هم لازم است تا اثر تغییر سطح تقاضا در ارزیابی دیده شود.</p>
+</div>
+<h2>طراحی تقسیم و خط مبنا</h2>
+<div class="fig">
+<p><img alt="" src="../artifacts/phase1/figures/p1_11_split_baselines.png" /></p>
+<p class="cap">تقسیم زمانی روی زمان سوارشدن، و WAPE چهار خط مبنای یک‌روز‌جلوتر روی ماه اعتبارسنجی.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>بخش</th>
+<th>بازه</th>
+<th>ساعت</th>
+<th>سوارشدن (نواحی فعال)</th>
+<th>میانگین ساعتی هر ناحیه</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>آموزش</td>
+<td dir='ltr'>2024-01-01 → 2024-04-30</td>
+<td dir='ltr'>2,904</td>
+<td dir='ltr'>12,753,266</td>
+<td dir='ltr'>32.8</td>
+</tr>
+<tr>
+<td>اعتبارسنجی</td>
+<td dir='ltr'>2024-05-01 → 2024-05-31</td>
+<td dir='ltr'>744</td>
+<td dir='ltr'>3,626,067</td>
+<td dir='ltr'>36.4</td>
+</tr>
+<tr>
+<td>آزمون (قفل)</td>
+<td dir='ltr'>2024-06-01 → 2024-06-30</td>
+<td dir='ltr'>720</td>
+<td dir='ltr'>3,440,254</td>
+<td dir='ltr'>35.7</td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>تقسیم زمانی. ماه ژوئن در هیچ تحلیلی از فاز ۱ امتیازدهی نشده است.</p>
+<ul>
+<li><strong>واحد تقسیم، زمان است</strong>، نه سطر یا ناحیه. هدف، پیش‌بینی آینده‌ی همان نواحی است، پس تقسیم بر اساس ناحیه معنا ندارد.</li>
+<li><strong>مرز ساعت تابستانی</strong> و ساعت‌های گمشده از ارزیابی حذف می‌شوند.</li>
+<li><strong>Memorial Day در مجموعه‌ی اعتبارسنجی</strong> است، پس رفتار مدل در تعطیلات قبل از آزمون دیده می‌شود. Juneteenth در آزمون است.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>خط مبنا (یک‌روز‌جلوتر)</th>
+<th>MAE</th>
+<th>RMSE</th>
+<th>WAPE</th>
+<th>سوگیری</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>میانگین ناحیه (آموزش)</td>
+<td dir='ltr'>22.34</td>
+<td dir='ltr'>49.72</td>
+<td dir='ltr'>61.4%</td>
+<td dir='ltr'>−3.60</td>
+</tr>
+<tr>
+<td>همان ساعت دیروز (lag 24)</td>
+<td dir='ltr'>10.25</td>
+<td dir='ltr'>27.60</td>
+<td dir='ltr'>28.2%</td>
+<td dir='ltr'>−0.05</td>
+</tr>
+<tr>
+<td>همان ساعت هفته‌ی قبل (lag 168)</td>
+<td dir='ltr'>8.08</td>
+<td dir='ltr'>20.37</td>
+<td dir='ltr'>22.2%</td>
+<td dir='ltr'>+0.57</td>
+</tr>
+<tr>
+<td><strong>پروفایل ناحیه × روز هفته × ساعت (آموزش)</strong></td>
+<td dir='ltr'><strong>7.27</strong></td>
+<td dir='ltr'><strong>18.52</strong></td>
+<td dir='ltr'><strong>20.0%</strong></td>
+<td dir='ltr'><strong>−3.30</strong></td>
+</tr>
+</tbody>
+</table>
+<p class='tcap'>خط‌های مبنا روی ماه اعتبارسنجی (۱۳۴ ناحیه × ۷۴۴ ساعت). خروجی: <code>tables/baselines_valid.csv</code>.</p>
+<div class="decide">
+<p><strong>معیار اصلی</strong> WAPE است (مجموع خطای مطلق تقسیم بر مجموع تقاضا)، چون برای سری‌های پرصفر پایدار است و تفسیر عملیاتی روشنی دارد. معیارهای ثانویه MAE، RMSE (حساس به خطای ساعت‌های اوج)، سوگیری، و <strong>WAPE ساعت‌های اوج</strong> و هر گروه ناحیه‌اند. بازه‌ی اطمینان با bootstrap روی روزها ساخته می‌شود. <strong>خط مبنایی که باید از آن بهتر بود، پروفایل ناحیه × روز هفته × ساعت با WAPE برابر ۲۰٫۰٪ است.</strong> سوگیری منفی آن (−۳٫۳) نشان می‌دهد روند صعودی تقاضا را نمی‌بیند.</p>
+</div>
+<h2>بخش‌های پیشنهادی، اخلاق و محدودیت‌ها</h2>
+<h3>بخش بدون ناظر پیشنهادی (بند ۱۲ کارت پروژه)</h3>
+<ul>
+<li>خوشه‌بندی <strong>نواحی</strong> بر اساس پروفایل هفتگی ۱۶۸‌بُعدی نرمال‌شده (شکل الگو، نه حجم) با k-means و خوشه‌بندی سلسله‌مراتبی. تعداد خوشه با silhouette و پایداری روی چند seed و زیرنمونه‌ی هفته‌ها انتخاب می‌شود. نام‌گذاری مورد انتظار: «اداری روز کاری»، «تفریحی شبانه»، «فرودگاه»، «مسکونی».</li>
+<li>PCA روی همان پروفایل‌ها برای مصورسازی، و خوشه‌بندی <strong>روزها</strong> برای جدا کردن روزهای تعطیل و غیرعادی.</li>
+</ul>
+<h3>بخش توسعه‌یافته‌ی پیشنهادی مسیر: سری زمانی و رخداد (بند ۱۳ کارت پروژه)</h3>
+<ul>
+<li>پیش‌بینی یک‌روز‌جلوتر با ارزیابی rolling-origin، و مقایسه‌ی مدل خطی با ویژگی‌های تقویمی، gradient boosting و مدل شمارشی.</li>
+<li>تشخیص ناهنجاری روزانه و ناحیه–ساعتی بر اساس باقیمانده‌ی پیش‌بینی، با جدا کردن «خطای داده» از «رخداد واقعی» به کمک تقویم تعطیلات و داده‌ی هوا.</li>
+<li>تحلیل پایداری: آیا خطا از ماه اعتبارسنجی تا آزمون تغییر می‌کند؟ (drift در سطح تقاضا)</li>
+</ul>
+<h3>ریسک‌های اخلاقی، حریم خصوصی و سوگیری</h3>
+<ul>
+<li><strong>حریم خصوصی:</strong> داده شناسه‌ی راننده، مسافر یا مختصات ندارد، ولی ترکیب یک ناحیه‌ی کم‌تردد با زمان دقیق می‌تواند یک سفر خاص را قابل شناسایی کند (مثلاً سفر نیمه‌شب از استاتن‌آیلند به فرودگاه نیوارک). خروجی‌ها فقط <strong>در سطح تجمیعی</strong> منتشر می‌شوند و سلول‌های کمتر از ۱۰ سفر در گزارش گزارش نمی‌شوند.</li>
+<li><strong>سوگیری پوشش:</strong> داده فقط تاکسی زرد را شامل می‌شود که بیشتر در منهتن فعال است. مدلی که برای بیشینه کردن سفرهای تاکسی زرد بهینه شود، ممکن است کم‌خدمتی نواحی بیرون منهتن را <strong>تشدید کند</strong>. برای همین خطا برای هر borough جدا گزارش می‌شود و مدل نباید برای تصمیم «کجا سرویس نده» به کار رود.</li>
+<li><strong>تقاضای محقق‌شده در برابر تقاضای واقعی:</strong> جایی که تاکسی کم است، سفر کم ثبت می‌شود. پس مدل ممکن است «کمبود عرضه» را با «تقاضای کم» اشتباه بگیرد (حلقه‌ی بازخورد).</li>
+<li><strong>اثر بر رانندگان:</strong> پیش‌بینی ابزار کمک‌تصمیم است و نباید برای کنترل یا جریمه‌ی رانندگان استفاده شود.</li>
+<li><strong>همبستگی در برابر علیت:</strong> رابطه‌هایی مثل افت سفر در روز برفی همبستگی‌اند. ادعای علّی فقط با طراحی مناسب (مثلاً مقایسه با روزهای مشابه) مطرح می‌شود.</li>
+<li><strong>تغییر سیاست:</strong> congestion pricing در ژانویه‌ی ۲۰۲۵ الگوی منهتن را تغییر داده است. مدل این پروژه برای ۲۰۲۵ به بعد معتبر نیست، مگر اینکه دوباره ارزیابی شود.</li>
+</ul>
+<h3>بازتولیدپذیری</h3>
+<p>همه‌ی اعداد این گزارش را <code>python -m taxidemand.run_all</code> از فایل‌های خامی می‌سازد که checksum آن‌ها بررسی شده است (<bdi dir='ltr'>seed = 7</bdi>، زمان اجرا حدود ۱٫۵ دقیقه روی یک لپ‌تاپ با ۸ گیگابایت حافظه). جدول‌ها در <code>artifacts/phase1/tables/</code>، اعداد کلیدی در <code>artifacts/phase1/headline.json</code> و شکل‌ها در <code>artifacts/phase1/figures/</code> هستند. فایل‌های خام در <code>tlc/downloads/</code> و پنل ناحیه–ساعت در <code>tlc/derived/</code> ذخیره می‌شوند. استفاده از ابزار هوش مصنوعی در <code>AI_USAGE.md</code> ثبت شده است.</p>
+<h3>منابع</h3>
+<ol class="refs">
+<li>NYC Taxi & Limousine Commission. TLC Trip Record Data. nyc.gov/site/tlc/about/tlc-trip-record-data.page</li>
+<li>NYC TLC. Data Dictionary — Yellow Taxi Trip Records (2024/2025 revision).</li>
+<li>NYC TLC. Taxi Fare (meter rates effective 19 Dec 2022).</li>
+<li>Hyndman, R. J., & Athanasopoulos, G. Forecasting: Principles and Practice, 3rd ed. OTexts, 2021.</li>
+<li>Kaufman, S., Rosset, S., Perlich, C. Leakage in Data Mining: Formulation, Detection, and Avoidance. KDD 2011.</li>
+</ol></body></html>
