@@ -1,5 +1,7 @@
 # NYC yellow-taxi zone demand — Data Analysis course project (Track A)
-
+> **Project Status: In Progress**
+>
+> This project is currently under development as part of an academic data analysis course. The repository will be updated as the analysis, modeling, and evaluation stages progress.
 Day-ahead forecasting of hourly pickups per taxi zone, from the NYC TLC Trip Record Data (yellow taxi, January–June 2024).
 
 **Status:** Phase 1 done: problem framing, provenance, structure and quality audit, time/space EDA, leakage analysis, split and baselines.
